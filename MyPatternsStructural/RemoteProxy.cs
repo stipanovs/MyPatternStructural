@@ -48,8 +48,10 @@ namespace MyPatternsStructural
             // xml parser
             string xmlString = result;
 
+            XmlReaderSettings settings = new XmlReaderSettings();
+            settings.IgnoreWhitespace = true;
 
-            using (XmlReader reader = XmlReader.Create(new StringReader(xmlString)))
+            using (XmlReader reader = XmlReader.Create(new StringReader(xmlString), settings))
             {
                 //xmlReader.MoveToContent();
 
@@ -71,32 +73,51 @@ namespace MyPatternsStructural
                 //xmlReader.ReadToFollowing("Value");
                 //output.AppendLine("     Value: " + xmlReader.ReadElementContentAsString());
 
+
+
+
                 while (reader.Read())
                 {
-                    switch (reader.NodeType)
-                    {
-                        case XmlNodeType.Element: // Узел является элементом.
+
+                    reader.MoveToContent();
+                    //reader.ReadStartElement("ValCurs");
+                    
+
+                    reader.ReadToFollowing("Valute");
+                    reader.ReadToFollowing("NumCode");
+                    string numCode = reader.ReadElementContentAsString();
+                    reader.ReadToFollowing("CharCode");
+                    string charCode = reader.ReadElementContentAsString();
+
+                    output.AppendLine(numCode);
+                    output.AppendLine(charCode);
+
+                    reader.MoveToContent();
+                    reader.ReadEndElement();
+                    //switch (reader.NodeType)
+                    //{
+                    //    case XmlNodeType.Element: // Узел является элементом.
 
 
-                            Console.Write("" + reader.Name);
+                    //        Console.Write("" + reader.Name);
 
-                            while (reader.MoveToNextAttribute()) // Чтение атрибутов.
-                                //Console.Write(" " + reader.Name + "='" + reader.Value + "'");
-                            Console.WriteLine(">");
-                            break;
-                        case XmlNodeType.Text: // Вывести текст в каждом элементе.
-                            //Console.WriteLine("---value---");
-                            Console.Write(" " + reader.Value);
-                            break;
-                        case XmlNodeType.EndElement: // Вывести конец элемента.
-                            Console.Write("</" + reader.Name);
-                            Console.WriteLine(">");
-                            break;
-                    }
+                    //        while (reader.MoveToNextAttribute()) // Чтение атрибутов.
+                    //            //Console.Write(" " + reader.Name + "='" + reader.Value + "'");
+                    //        Console.WriteLine(">");
+                    //        break;
+                    //    case XmlNodeType.Text: // Вывести текст в каждом элементе.
+                    //        //Console.WriteLine("---value---");
+                    //        Console.Write(" " + reader.Value);
+                    //        break;
+                    //    case XmlNodeType.EndElement: // Вывести конец элемента.
+                    //        Console.Write("</" + reader.Name);
+                    //        Console.WriteLine(">");
+                    //        break;
+                    //}
                 }
 
                 string xml_text = output.ToString();
-                 //Console.WriteLine(xml_text);
+                Console.WriteLine(xml_text);
             }
 
 
