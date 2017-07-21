@@ -11,9 +11,41 @@ using static System.Console;
 
 namespace MyPatternsStructural
 {
-    class RemoteProxy
+    interface ICurrencyExchangeRate
     {
-        public string GetResponseFromServer(DateTime date, string code)
+        string EURExchangeRate { get; }
+        string USDExchangeRate { get; }
+        string UAHExchangeRate { get; }
+        string RUBExchangeRate { get; }
+        string RONExchangeRate { get; }
+
+    }
+
+    class ExchangeRate : ICurrencyExchangeRate
+    {
+        public string EURExchangeRate => throw new NotImplementedException();
+
+        public string USDExchangeRate => throw new NotImplementedException();
+
+        public string UAHExchangeRate => throw new NotImplementedException();
+
+        public string RUBExchangeRate => throw new NotImplementedException();
+
+        public string RONExchangeRate => throw new NotImplementedException();
+    }
+    class ExchangeRateProxy : ICurrencyExchangeRate
+    {
+        public string EURExchangeRate{ get { return GetResponseFromServer(DateTime.Now, "978"); }}
+
+        public string USDExchangeRate { get { return GetResponseFromServer(DateTime.Now, "840"); } }
+
+        public string UAHExchangeRate { get { return GetResponseFromServer(DateTime.Now, "980"); } }
+
+        public string RUBExchangeRate { get { return GetResponseFromServer(DateTime.Now, "643"); } }
+
+        public string RONExchangeRate { get { return GetResponseFromServer(DateTime.Now, "946"); } }
+
+        private string GetResponseFromServer(DateTime date, string code)
         {
             string result = string.Empty;
 
@@ -61,7 +93,6 @@ namespace MyPatternsStructural
                 {
                     output.AppendLine(valueNode.InnerText);
                 }
-               
             }
 
             result = output.ToString();

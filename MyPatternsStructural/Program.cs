@@ -10,12 +10,31 @@ namespace MyPatternsStructural
     {
         static void Main(string[] args)
         {
-            RemoteProxy rmProxy = new RemoteProxy();
+            #region Proxy
+            ExchangeRateProxy rmProxy = new ExchangeRateProxy();
 
-            string cursulUSD = rmProxy.GetResponseFromServer(DateTime.Today, "840");
-            string cursulUSD117 = rmProxy.GetResponseFromServer(new DateTime(2017, 07, 17), "840");
-            Console.WriteLine(cursulUSD);
-            Console.WriteLine(cursulUSD117);
+            string usdExchangeRate = rmProxy.USDExchangeRate;
+            Console.WriteLine("USD Exchange Rate for " + DateTime.Now.ToShortDateString() + " is: " + usdExchangeRate);
+
+            string eurExchangeRate = rmProxy.EURExchangeRate;
+            Console.WriteLine("EUR Exchange Rate for " + DateTime.Now.ToShortDateString() + " is: " + eurExchangeRate);
+
+            string uahExchangeRate = rmProxy.UAHExchangeRate;
+            Console.WriteLine("UAH Exchange Rate for " + DateTime.Now.ToShortDateString() + " is: " + uahExchangeRate);
+
+            string rubExchangeRate = rmProxy.RUBExchangeRate;
+            Console.WriteLine("RUB Exchange Rate for " + DateTime.Now.ToShortDateString() + " is: " + rubExchangeRate);
+
+            string ronExchangeRate = rmProxy.RONExchangeRate;
+            Console.WriteLine("RUB Exchange Rate for " + DateTime.Now.ToShortDateString() + " is: " + ronExchangeRate);
+            
+            #endregion
+
+
+
+
+
+
 
             Console.ReadKey();
         }
