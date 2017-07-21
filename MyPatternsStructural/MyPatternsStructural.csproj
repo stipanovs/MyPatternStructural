@@ -42,9 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExchangeRateProxy\ExchangeRate.cs" />
+    <Compile Include="ExchangeRateProxy\ICurrencyExchangeRate.cs" />
+    <Compile Include="SalaryComponent\Bonus\BirthDayBonus.cs" />
+    <Compile Include="SalaryComponent\Bonus\SalesBonus.cs" />
+    <Compile Include="SalaryComponent\Bonus\YearlyBonus.cs" />
+    <Compile Include="SalaryComponent\Employee.cs" />
+    <Compile Include="SalaryComponent\ISalaryBonus.cs" />
+    <Compile Include="SalaryComponent\ISalarySuppliment.cs" />
+    <Compile Include="SalaryComponent\SalaryBase.cs" />
+    <Compile Include="SalaryComponent\SalaryBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ExchangeRateProxy.cs" />
+    <Compile Include="ExchangeRateProxy\ExchangeRateProxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

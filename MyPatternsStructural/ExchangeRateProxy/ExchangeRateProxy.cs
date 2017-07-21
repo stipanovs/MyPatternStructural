@@ -11,28 +11,6 @@ using static System.Console;
 
 namespace MyPatternsStructural
 {
-    interface ICurrencyExchangeRate
-    {
-        string EURExchangeRate { get; }
-        string USDExchangeRate { get; }
-        string UAHExchangeRate { get; }
-        string RUBExchangeRate { get; }
-        string RONExchangeRate { get; }
-
-    }
-
-    class ExchangeRate : ICurrencyExchangeRate
-    {
-        public string EURExchangeRate => throw new NotImplementedException();
-
-        public string USDExchangeRate => throw new NotImplementedException();
-
-        public string UAHExchangeRate => throw new NotImplementedException();
-
-        public string RUBExchangeRate => throw new NotImplementedException();
-
-        public string RONExchangeRate => throw new NotImplementedException();
-    }
     class ExchangeRateProxy : ICurrencyExchangeRate
     {
         public string EURExchangeRate{ get { return GetResponseFromServer(DateTime.Now, "978"); }}
@@ -48,7 +26,6 @@ namespace MyPatternsStructural
         private string GetResponseFromServer(DateTime date, string code)
         {
             string result = string.Empty;
-
             string xmlString = string.Empty;
 
             string requestDate = string.Format("{0}.{1:D2}.{2}", date.Day, date.Month, date.Year);
@@ -67,6 +44,7 @@ namespace MyPatternsStructural
 
                 xmlString = streamReader.ReadToEnd();
 
+                dataStream.Close();
                 streamReader.Close();
                 response.Close();
 
@@ -75,11 +53,7 @@ namespace MyPatternsStructural
             {
                 Console.WriteLine(e.Message);
             }
-
-            StringBuilder output = new StringBuilder();
-
-            // xml parser
-           
+            
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(xmlString);
 
@@ -89,13 +63,11 @@ namespace MyPatternsStructural
             {
                 XmlNode numCode = elemList[i].SelectSingleNode("NumCode");
                 XmlNode valueNode = elemList[i].SelectSingleNode("Value");
-                if (numCode.InnerText == code) // codul valutei
+                if (numCode.InnerText == code) 
                 {
-                    output.AppendLine(valueNode.InnerText);
+                    result = valueNode.InnerText;
                 }
             }
-
-            result = output.ToString();
             
             return result;
         }

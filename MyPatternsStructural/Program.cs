@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyPatternsStructural.SalaryComponent;
+using MyPatternsStructural.SalaryComponent.Bonus;
 
 namespace MyPatternsStructural
 {
@@ -14,22 +16,35 @@ namespace MyPatternsStructural
             ExchangeRateProxy rmProxy = new ExchangeRateProxy();
 
             string usdExchangeRate = rmProxy.USDExchangeRate;
-            Console.WriteLine("USD Exchange Rate for " + DateTime.Now.ToShortDateString() + " is: " + usdExchangeRate);
+            Console.WriteLine("USD Exchange Rate for date: " + DateTime.Now.ToShortDateString() + " is: " + usdExchangeRate);
 
             string eurExchangeRate = rmProxy.EURExchangeRate;
-            Console.WriteLine("EUR Exchange Rate for " + DateTime.Now.ToShortDateString() + " is: " + eurExchangeRate);
+            Console.WriteLine("EUR Exchange Rate for date: " + DateTime.Now.ToShortDateString() + " is: " + eurExchangeRate);
 
             string uahExchangeRate = rmProxy.UAHExchangeRate;
-            Console.WriteLine("UAH Exchange Rate for " + DateTime.Now.ToShortDateString() + " is: " + uahExchangeRate);
+            Console.WriteLine("UAH Exchange Rate for date: " + DateTime.Now.ToShortDateString() + " is: " + uahExchangeRate);
 
             string rubExchangeRate = rmProxy.RUBExchangeRate;
-            Console.WriteLine("RUB Exchange Rate for " + DateTime.Now.ToShortDateString() + " is: " + rubExchangeRate);
+            Console.WriteLine("RUB Exchange Rate for date: " + DateTime.Now.ToShortDateString() + " is: " + rubExchangeRate);
 
             string ronExchangeRate = rmProxy.RONExchangeRate;
-            Console.WriteLine("RUB Exchange Rate for " + DateTime.Now.ToShortDateString() + " is: " + ronExchangeRate);
-            
+            Console.WriteLine("RON Exchange Rate for date: " + DateTime.Now.ToShortDateString() + " is: " + ronExchangeRate);
+
             #endregion
 
+            #region SalaryDecorator
+
+            //Employee employee1 = new Employee("Sergiu", "Stipanov");
+            //ISalarySuppliment salary = employee1._salary;
+            //salary = new BirthDayBonus(salary);
+            //salary = new SalesBonus(salary);
+            //salary = new YearlyBonus(salary);
+
+            //double salaryAmount = employee1.CalculateSalary(salary);
+            //Console.WriteLine("Salary Amount: " + salaryAmount);
+
+
+            #endregion
 
 
 
