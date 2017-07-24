@@ -9,7 +9,7 @@ namespace MyPatternsStructural.SalaryComponent.Bonus
     class YearlyBonus : ISalaryBonus
     {
         private readonly ISalarySuppliment _salarySupplement;
-        private double __yearlyBonus = 7000;
+        private double _yearlyBonus = 7000;
 
         public YearlyBonus(ISalarySuppliment salarySuppliment)
         {
@@ -18,14 +18,14 @@ namespace MyPatternsStructural.SalaryComponent.Bonus
         }
         public void AddComponent()
         {
-            Console.WriteLine("Add Yearly Bonus to salary: " + __yearlyBonus);
+            Console.WriteLine("Add Yearly Bonus to salary: " + _yearlyBonus);
             _salarySupplement.AddComponent();
         }
 
         public double SalaryCalc()
         {
 
-            return __yearlyBonus + _salarySupplement.SalaryCalc();
+            return _yearlyBonus + _salarySupplement.SalaryCalc();
         }
     }
 }
