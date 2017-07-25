@@ -16,15 +16,14 @@ namespace MyPatternsStructural.SalaryComponent.Bonus
             _salarySupplement = salarySuppliment;
 
         }
-        public void AddComponent()
+        public void AddComponent() // wrapper functionality
         {
             Console.WriteLine("Add Birthday Bonus to salary: " + _birthDayBonus);
             _salarySupplement.AddComponent();
         }
 
-        public double SalaryCalc()
+        public double SalaryCalc() // delegate to the Decorator base class
         {
-
             return _birthDayBonus + _salarySupplement.SalaryCalc();
         }
     }

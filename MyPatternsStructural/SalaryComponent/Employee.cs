@@ -27,8 +27,8 @@ namespace MyPatternsStructural.SalaryComponent
         public double CalculateSalary(ISalarySuppliment salarySuppliment)
         {
             
-            salarySuppliment.AddComponent();
-            return salarySuppliment.SalaryCalc();
+            salarySuppliment.AddComponent(); // wrapper functionality
+            return salarySuppliment.SalaryCalc(); // delegate to the Decorator base class
         }
     }
 }

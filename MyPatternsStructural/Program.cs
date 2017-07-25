@@ -14,36 +14,36 @@ namespace MyPatternsStructural
         {
             #region Proxy
 
-            //ICurrencyExchangeRate rmProxy = new ExchangeRateProxy();
+            ICurrencyExchangeRate rmProxy = new ExchangeRateProxy();
 
-            //string usdExchangeRate = rmProxy.USDExchangeRate;
-            //Console.WriteLine("USD Exchange Rate for date: " + DateTime.Now.ToShortDateString() + " is: " + usdExchangeRate);
+            string usdExchangeRate = rmProxy.USDExchangeRate;
+            Console.WriteLine("USD Exchange Rate for date: " + DateTime.Now.ToShortDateString() + " is: " + usdExchangeRate);
 
-            //string eurExchangeRate = rmProxy.EURExchangeRate;
-            //Console.WriteLine("EUR Exchange Rate for date: " + DateTime.Now.ToShortDateString() + " is: " + eurExchangeRate);
+            string eurExchangeRate = rmProxy.EURExchangeRate;
+            Console.WriteLine("EUR Exchange Rate for date: " + DateTime.Now.ToShortDateString() + " is: " + eurExchangeRate);
 
-            //string uahExchangeRate = rmProxy.UAHExchangeRate;
-            //Console.WriteLine("UAH Exchange Rate for date: " + DateTime.Now.ToShortDateString() + " is: " + uahExchangeRate);
+            string uahExchangeRate = rmProxy.UAHExchangeRate;
+            Console.WriteLine("UAH Exchange Rate for date: " + DateTime.Now.ToShortDateString() + " is: " + uahExchangeRate);
 
-            //string rubExchangeRate = rmProxy.RUBExchangeRate;
-            //Console.WriteLine("RUB Exchange Rate for date: " + DateTime.Now.ToShortDateString() + " is: " + rubExchangeRate);
+            string rubExchangeRate = rmProxy.RUBExchangeRate;
+            Console.WriteLine("RUB Exchange Rate for date: " + DateTime.Now.ToShortDateString() + " is: " + rubExchangeRate);
 
-            //string ronExchangeRate = rmProxy.RONExchangeRate;
-            //Console.WriteLine("RON Exchange Rate for date: " + DateTime.Now.ToShortDateString() + " is: " + ronExchangeRate);
+            string ronExchangeRate = rmProxy.RONExchangeRate;
+            Console.WriteLine("RON Exchange Rate for date: " + DateTime.Now.ToShortDateString() + " is: " + ronExchangeRate);
 
 
             #endregion
 
             #region SalaryDecorator
 
-            Employee employee1 = new Employee("Sergiu", "Stipanov");
-            ISalarySuppliment salary = employee1._salary;
-            salary = new BirthDayBonus(salary);
-            salary = new SalesBonus(salary);
-            salary = new YearlyBonus(salary);
+            //Employee employee1 = new Employee("Sergiu", "Stipanov");
+            //ISalarySuppliment salary = employee1._salary;
+            //salary = new BirthDayBonus(salary);
+            //salary = new SalesBonus(salary);
+            //salary = new YearlyBonus(salary);
 
-            double salaryAmount = employee1.CalculateSalary(salary);
-            Console.WriteLine("Salary Amount: " + salaryAmount);
+            //double salaryAmount = employee1.CalculateSalary(salary);
+            //Console.WriteLine("Salary Amount: " + salaryAmount);
 
 
             #endregion

@@ -24,7 +24,6 @@ namespace MyPatternsStructural.SalaryComponent.Bonus
 
         public double SalaryCalc()
         {
-
             return _yearlyBonus + _salarySupplement.SalaryCalc();
         }
     }
